@@ -1,0 +1,83 @@
+<div class="flex-column" data-kt-stepper-element="content">
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-between mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">apt-setup/cdrom</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="apt-setup/cdrom" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!-- end:input-group -->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Country</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="country" id="country_add" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an Country">
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <!-- <div class="fv-row d-flex justify-content-between mb-10">
+        <label class="form-label fs-4">Confirm</label>
+
+
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="confirm" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+    </div> -->
+    <!-- end:input-group -->
+
+    <!--begin::Input group-->
+    <!-- <div class="fv-row mb-10">
+
+        <label class="form-label fs-4">Choose Interface</label>
+
+
+
+        <select name="choose_interface" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for interface in context.interfaces %}
+                <option value="{{interface}}">{{interface}}</option>
+            {%endfor%}
+        </select>
+
+    </div> -->
+    <!--end::Input group-->
+
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Install Additions</label>
+        <!--end::Label-->
+
+        <!--begin::Ml-->
+        <select id="get_value_from_IA" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
+            {% for install_addition in context.install_additions %}
+                <option value="{{install_addition}}">{{install_addition}}</option>
+            {%endfor%}
+        </select>
+        <input style="display: none;" id="purse-IA" name="selectpicker"/>
+        <!--end::Ml-->
+    </div>
+    <!--end::Input group-->
+
+    <input type="hidden" name="autoGenerate" value="debian">
+
+</div>

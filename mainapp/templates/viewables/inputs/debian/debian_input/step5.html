@@ -1,0 +1,62 @@
+<div class="flex-column" data-kt-stepper-element="content">
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label d-flex align-items-center">
+            <span >Clock-Setup</span>
+        </label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <input name="clock_setup" type="text" class="form-control form-control-solid" placeholder="Utc" />
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label d-flex align-items-center">
+            <span >Time Zone</span>
+        </label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <input name="time_zone" type="text" class="form-control form-control-solid" placeholder="EU/Berlin" />
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-around mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Ntp</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="ntp" id="ntp" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!--end::Input group-->
+    
+    
+    <div id="ntp_block" style="display: none;">
+        <!-- start:input-group -->
+        <div class="fv-row mb-10" >
+            <!--begin::Label-->
+            <label class="form-label fs-4">Ntp Server</label>
+            <!--end::Label-->
+
+            <!--begin::Input-->
+            <input name="ntp_server_address" type="text" class="form-control form-control-solid"  placeholder="0.pool.ntp.org" />
+            <!--end::Input-->
+        </div>
+        <!--end::Input group-->
+    </div>
+
+</div>

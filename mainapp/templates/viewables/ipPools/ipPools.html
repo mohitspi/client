@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %} IP Pools {% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block content %}
+
+<div class="card card-flush shadow-sm pt-6">
+    <div class="card-header">
+        <h1 class="card-title fs-1 text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+            </svg>
+              IP Pools
+        </h1>
+        <div class="card-toolbar">
+            <a href="{{ url_for('viewables.createIpPoolApi') }}">
+                <button type="button" class="btn btn-sm btn-danger p-4 fs-4">
+                    New IP pool
+                </button>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="card-footer">
+
+        <div class="d-flex">
+            <div class="bg-dark p-4 rounded mx-2">
+                <svg style="color:white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </div>
+            <input type="text" id="searchBar" class="form-control" placeholder="Search"/>
+        </div>
+        
+        <table id="kt_datatable_example_1" class="table table-row-bordered gy-5">
+            <thead>
+                <tr class="fw-bold fs-6 text-muted">
+                    <th>Network</th>
+                    <th>IP Address</th>
+                    <th>Hypervisor</th>       
+                </tr>
+            </thead>
+            <tbody id="table">
+                
+                
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+<script>
+    $(document).ready(function(){
+        $("#searchBar").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#table tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+</script>
+{% endblock %}

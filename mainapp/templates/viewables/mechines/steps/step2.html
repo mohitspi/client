@@ -1,0 +1,65 @@
+<div class="flex-column" data-kt-stepper-element="content">
+    <!-- bof -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Path</label>
+        <!--end::Label-->
+
+        <!--begin::input-->
+        <input required name="path" value="/var/lib/libvirt/images" maxlength="100" type="text" class="form-control form-control-solid" placeholder="/var/lib/libvirt/images"/>
+        
+        <!--end::input-->
+    </div>
+    <!-- eof -->
+
+    <!-- bof -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Volume Name</label>
+        <!--end::Label-->
+
+        <!--begin::input-->
+        <input id="vname" name="vname" maxlength="100" type="text" class="form-control form-control-solid" placeholder="vm1"/>
+        <!--end::input-->
+    </div>
+    <!-- eof -->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Storage Type</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="storage_type" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+                <option value="raw">raw (a plain file)</option>
+                <option value="cow">cow (User Mode Linux disk image format)</option>
+                <option value="qcow">qcow(QEMU v1 disk image format)</option>
+                <option value="qcow2">qcow2(QEMU v2 disk image format)</option>
+                <option value="iso">iso (CDROM disk image format)</option>
+                <option value="vmdk">vmdk (VMware disk image format)</option>
+                <option value="dmg">dmg (Mac disk image format)</option>
+                <option value="qed">qed (QEMU Enhanced Disk image format)</option>
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+
+    <!-- start:input-group -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4" >Storage</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <label class="form-label"><span id="storage">1</span> GB</label>
+        <div class="range">
+            <input type="range" id="available" class="form-range" name="storage" value="1" min="1" max="320"  step="1" oninput="changeSlider(this,'storage')" />
+        </div>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+
+</div>

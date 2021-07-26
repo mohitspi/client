@@ -1,0 +1,33 @@
+{% extends 'cisco/base.html' %}
+{% block content %}
+<!-- Devices -->
+<article id="work" class="wrapper style2">
+	<div class="container">
+		<header>
+			<h2>CISCO devices</h2>
+			<p>Switch: SG500-52 | Router: WS-C3750G-48PS</p>
+		</header>
+		<footer>
+			<a href="/addconfig" class="button large scrolly" style="max-width: 50em"><i style="padding-right: 15px" class="fa fa-retweet" aria-hidden="true"></i>Add Configuration</a>
+		</footer>
+
+		<div class="row aln-center">
+			  {% for one in allCISCO %}
+
+			<div class="col-4 col-6-medium col-12-small">
+				<section class="box style1">
+					<span class="icon featured fa-server"></span>
+					<h3>{{one.device_type}}</h3>
+					<p>IP: {{one.ip}}</p>
+					<a href="/config/{{one.id}}" class="button large scrolly" style="font-size: 18px; background-color: #454545">
+						<i style="padding-right: 15px" class="fa fa-cogs" aria-hidden="true"></i>
+						Show configuration
+					</a>
+				</section>
+			</div>
+			{% endfor %}
+
+		</div>
+	</div>
+</article>
+{% endblock %}

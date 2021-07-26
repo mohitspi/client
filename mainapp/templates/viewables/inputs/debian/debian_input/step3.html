@@ -1,0 +1,137 @@
+<div class="flex-column" data-kt-stepper-element="content">
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label d-flex align-items-center">
+            <span >Choose Interface</span>
+            <!-- <i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Example tooltip"></i> -->
+        </label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="choose_interface" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for interface in context.interfaces %}
+                <option value="{{interface}}">{{interface}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row d-flex justify-content-around mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">ipv4 static configuration</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="ipv4" id="ipv4" class="form-check-input" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- Hidden Start -->
+    <div id="ipv4_block" style="display: none;">
+        <!--begin::Input group-->
+        <div class="fv-row mb-10">
+            <!--begin::Label-->
+            <label class="form-label fs-4">ipv4 address</label>
+            <!--end::Label-->
+    
+            <!--begin::input-->
+            <input name="ipv4_address" type="text" class="form-control form-control-solid" placeholder="192.168.10.111"/>
+            
+            <!--end::input-->
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="fv-row mb-10">
+            <!--begin::Label-->
+            <label class="form-label fs-4">ipv4 netmask</label>
+            <!--end::Label-->
+    
+            <!--begin::input-->
+            <input name="ipv4_netmask" type="text" class="form-control form-control-solid" placeholder="255.255.255"/>
+            
+            <!--end::input-->
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="fv-row mb-10">
+            <!--begin::Label-->
+            <label class="form-label fs-4">ipv4 gateway</label>
+            <!--end::Label-->
+    
+            <!--begin::input-->
+            <input name="ipv4_gateway" type="text" class="form-control form-control-solid" placeholder="192.168.10.1"/>
+            
+            <!--end::input-->
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="fv-row mb-10">
+            <!--begin::Label-->
+            <label class="form-label fs-4">ipv4_nameserver</label>
+            <!--end::Label-->
+    
+            <!--begin::input-->
+            <input name="ipv4_nameserver" type="text" class="form-control form-control-solid" placeholder="192.168.10.1"/>
+            
+            <!--end::input-->
+        </div>
+        <!--end::Input group-->
+
+        <!--begin::Input group-->
+        <div class="fv-row mb-10">
+            <!--begin::Label-->
+            <label class="form-label fs-4">dns server</label>
+            <!--end::Label-->
+    
+            <!--begin::input-->
+            <input name="dns_server" type="text" class="form-control form-control-solid" placeholder="192.168.10.1"/>
+            
+            <!--end::input-->
+        </div>
+        <!--end::Input group-->
+    </div>
+    <!-- Hidden End -->
+
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">dhcp_timeout</label>
+        <!--end::Label-->
+
+        <!--begin::input-->
+        <input name="dhcp_timeout" type="number" class="form-control form-control-solid" placeholder="60"/>
+        
+        <!--end::input-->
+    </div>
+    <!--end::Input group-->
+</div>
+
+<!-- <script for="ipv4">
+    let ipv4 = document.getElementById("ipv4");
+    let ipv4_block = document.getElementById("ipv4_block");
+    $("#ipv4").click(function() {
+        if (ipv4.value == "1"){
+            ipv4.value = '0';
+        }else{
+            ipv4.value = '1';
+        }
+        if (ipv4.value == '1'){
+            ipv4_block.style.display = "block";
+        }else{
+            ipv4_block.style.display = "none";
+        }
+        console.log(ipv4.value,ipv4_block.style.display)
+    });
+    
+</script> -->

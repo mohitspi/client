@@ -1,0 +1,33 @@
+<div class="flex-column current" data-kt-stepper-element="content">
+    <!-- bof -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Machine Name</label>
+        <!--end::Label-->
+
+        <!--begin::input-->
+        <input id="mname" name="machine_name" maxlength="100" type="text" class="form-control form-control-solid" placeholder="app01"/>
+        
+        <!--end::input-->
+    </div>
+    <!-- eof -->
+
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Select Hypervisor</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="hypervisor" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for hypervisor in hypervisors %}    
+            <option value="{{hypervisor}}">Hypervisor [ {{hypervisor}} ]</option>
+            {% endfor %}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+
+</div>

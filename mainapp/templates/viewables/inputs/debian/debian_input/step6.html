@@ -1,0 +1,138 @@
+<div class="flex-column" data-kt-stepper-element="content">
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-between mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Device Remove Lvm Span</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="device_remove_lvm_span" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!-- end:input-group -->
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-between mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Purge Lvm From Device</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="purge_lvm_from_device" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!-- end:input-group -->
+
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Partman Lvm Method</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="partman_lvm_method" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for method in context.methods %}
+                <option value="{{method}}">{{method}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+
+
+    <!-- 5 Switch -->
+
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-between mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">device_remove_lvm</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="device_remove_lvm" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!-- end:input-group -->
+    
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-between mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">device_remove_md</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="device_remove_md" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!-- end:input-group -->
+
+    <!-- start:input-group -->
+    <!-- <div class="fv-row d-flex justify-content-between mb-10">
+
+        <label class="form-label fs-4">Confirm</label>
+
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="confirm" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+
+    </div> -->
+    <!-- end:input-group -->
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-between mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Confirm No Overwrite</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="confirm_nooverwrite" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!-- end:input-group -->
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-between mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">No Boot</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="no_boot" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!-- end:input-group -->
+</div>

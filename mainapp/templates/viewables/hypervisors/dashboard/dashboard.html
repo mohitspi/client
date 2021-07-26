@@ -1,0 +1,391 @@
+{% extends "base.html" %}
+{% block title %} Hypervisor Dashboard {% endblock %}
+{% block style %}
+<style>
+</style>
+{% endblock %}
+{% block content %}
+
+<div  class="card card-flush shadow-sm p-6">
+    <div class="card-header">
+        <h1 class="card-title fs-1 text-gray-700">
+            <svg style="margin-right: .5rem;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-hdd-stack-fill" viewBox="0 0 16 16">
+                <path d="M2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2H2zm.5 3a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm2 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm.5 3a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm2 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1z"/>
+            </svg>
+              Hypervisor : {{hypervisor.hostname}}
+        </h1>
+    </div>
+    <div class="d-flex justify-content-center mt-10 text-gray-700">
+        <a href="#" style="width: 20vw;font-size: 1vw;" class="btn btn-primary">Dashboard</a>
+        <a href="#" style="width: 20vw;font-size: 1vw;" class="btn btn-bg-light btn-active-color-danger">Machine</a>
+        <a href="#" style="width: 20vw;font-size: 1vw;" class="btn btn-bg-light btn-active-color-danger">Network</a>
+        <a href="#" style="width: 20vw;font-size: 1vw;" class="btn btn-bg-light btn-active-color-danger">Settings</a>
+        <a href="#" style="width: 20vw;font-size: 1vw;" class="btn btn-bg-light btn-active-color-danger">Console</a>
+    </div>
+
+
+
+    <button id="spin" class="btn btn-primary my-5" type="button" disabled>
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...
+    </button>
+
+    <div id="error" style="display: none;">
+        <div class="alert alert-danger d-flex justify-content-center" role="alert">
+            Something Went wrong!
+        </div>
+    </div>
+
+    <div id="main"  class="d-flex justify-content-around mt-10 mb-10">
+        <div id="cpu">
+            <div class="card card-bordered">
+                <div class="card-body">
+                    <div id="kt_apexcharts_cpu" style="height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="memory">
+            <div class="card card-bordered">
+                <div class="card-body">
+                    <div id="kt_apexcharts_memory" style="height: 350px;"></div>
+                </div>
+            </div>
+        </div>
+
+        
+    
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+{% block script %}
+<script>
+
+hostname = "{{hypervisor.hostname}}"
+
+fetch("/hypervisor/chartAPI/"+ hostname,{
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data['res']=='Success'){
+                    console.log('Success:', data);
+                    createMEMORY(data['mem'],data['totalMem'])
+                    createCPU(data['cpu'])
+                }else{
+                    document.querySelector("#error").style.display = "block";
+                }
+                document.querySelector("#spin").style.display = "none";
+            })
+// createMEMORY
+const createMEMORY = (memoryData,max)=>{
+    var element = document.getElementById('kt_apexcharts_memory');
+
+    var height = parseInt(KTUtil.css(element, 'height'));
+    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+    var baseColor = KTUtil.getCssVariableValue('--bs-warning');
+    var lightColor = KTUtil.getCssVariableValue('--bs-light-warning');
+
+
+    var options = {
+        series: [{
+            name: 'Memory Usage',
+            data: memoryData
+        }],
+        title: {
+            text: "Memory",
+            align: 'right',
+            margin: 10,
+            offsetX: 0,
+            offsetY: 0,
+            floating: false,
+            style: {
+            fontSize:  '20px',
+            // fontWeight:  'bold',
+            // fontFamily:  "undefined",
+            color:  "orange"
+            },
+        },
+        chart: {
+            fontFamily: 'inherit',
+            type: 'area',
+            height: height,
+            width: 450,
+            toolbar: {
+                show: false
+            }
+        },
+        plotOptions: {
+
+        },
+        legend: {
+            show: false
+        },
+        dataLabels: {
+            enabled: false
+        },
+        fill: {
+            type: 'solid',
+            opacity: 1
+        },
+        stroke: {
+            curve: 'smooth',
+            show: true,
+            width: 3,
+            colors: [baseColor]
+        },
+        xaxis: {
+            categories: ["","","","","","","","","",""  ,"","","","","","","","","",""],
+            axisBorder: {
+                show: false,
+            },
+            axisTicks: {
+                show: false
+            },
+            labels: {
+                style: {
+                    colors: labelColor,
+                    fontSize: '12px'
+                }
+            },
+            crosshairs: {
+                position: 'front',
+                stroke: {
+                    color: baseColor,
+                    width: 1,
+                    dashArray: 3
+                }
+            },
+            tooltip: {
+                enabled: true,
+                formatter: undefined,
+                offsetY: 0,
+                style: {
+                    fontSize: '12px'
+                }
+            }
+        },
+        yaxis: {
+            min: 0,
+            max: max,
+            labels: {
+                style: {
+                    colors: labelColor,
+                    fontSize: '12px'
+                }
+            }
+        },
+        states: {
+            normal: {
+                filter: {
+                    type: 'none',
+                    value: 0
+                }
+            },
+            hover: {
+                filter: {
+                    type: 'none',
+                    value: 0
+                }
+            },
+            active: {
+                allowMultipleDataPointsSelection: false,
+                filter: {
+                    type: 'none',
+                    value: 0
+                }
+            }
+        },
+        tooltip: {
+            style: {
+                fontSize: '12px'
+            },
+            y: {
+                formatter: function (val) {
+                    return val + ' megabyte/s'
+                }
+            }
+        },
+        colors: [lightColor],
+        grid: {
+            borderColor: borderColor,
+            strokeDashArray: 4,
+            yaxis: {
+                lines: {
+                    show: true
+                }
+            }
+        },
+        markers: {
+            strokeColor: baseColor,
+            strokeWidth: 3
+        }
+    };
+
+    var chart = new ApexCharts(element, options);
+    chart.render();
+}
+
+
+// CPU
+const createCPU = (cpuData) =>{
+    var element = document.getElementById('kt_apexcharts_cpu');
+
+    var height = parseInt(KTUtil.css(element, 'height'));
+    var labelColor = KTUtil.getCssVariableValue('--bs-gray-500');
+    var borderColor = KTUtil.getCssVariableValue('--bs-gray-200');
+    var baseColor = KTUtil.getCssVariableValue('--bs-primary');
+    var lightColor = KTUtil.getCssVariableValue('--bs-light-primary');
+
+
+    var options = {
+        series: [{
+            name: 'CPU Usage',
+            data: cpuData
+        }],
+        title: {
+            text: "CPU",
+            align: 'right',
+            margin: 10,
+            offsetX: 0,
+            offsetY: 0,
+            floating: false,
+            style: {
+            fontSize:  '20px',
+            // fontWeight:  'bold',
+            // fontFamily:  "undefined",
+            color:  "rgb(20, 126, 225)"
+            },
+        },
+        chart: {
+            fontFamily: 'inherit',
+            type: 'area',
+            height: height,
+            width: 450,
+            toolbar: {
+                show: false
+            }
+        },
+        plotOptions: {
+
+        },
+        legend: {
+            show: false
+        },
+        dataLabels: {
+            enabled: false
+        },
+        fill: {
+            type: 'solid',
+            opacity: 1
+        },
+        stroke: {
+            curve: 'smooth',
+            show: true,
+            width: 3,
+            colors: [baseColor]
+        },
+        xaxis: {
+            categories: ["","","","","","","","","",""  ,"","","","","","","","","",""],
+            axisBorder: {
+                show: false,
+            },
+            axisTicks: {
+                show: false
+            },
+            labels: {
+                style: {
+                    colors: labelColor,
+                    fontSize: '12px'
+                }
+            },
+            crosshairs: {
+                position: 'front',
+                stroke: {
+                    color: baseColor,
+                    width: 1,
+                    dashArray: 3
+                }
+            },
+            tooltip: {
+                enabled: true,
+                formatter: undefined,
+                offsetY: 0,
+                style: {
+                    fontSize: '12px'
+                }
+            }
+        },
+        yaxis: {
+            min: 0,
+            max: 100,
+            labels: {
+                style: {
+                    colors: labelColor,
+                    fontSize: '12px'
+                }
+            }
+        },
+        states: {
+            normal: {
+                filter: {
+                    type: 'none',
+                    value: 0
+                }
+            },
+            hover: {
+                filter: {
+                    type: 'none',
+                    value: 0
+                }
+            },
+            active: {
+                allowMultipleDataPointsSelection: false,
+                filter: {
+                    type: 'none',
+                    value: 0
+                }
+            }
+        },
+        tooltip: {
+            style: {
+                fontSize: '12px'
+            },
+            y: {
+                formatter: function (val) {
+                    return val + ' %'
+                }
+            }
+        },
+        colors: [lightColor],
+        grid: {
+            borderColor: borderColor,
+            strokeDashArray: 4,
+            yaxis: {
+                lines: {
+                    show: true
+                }
+            }
+        },
+        markers: {
+            strokeColor: baseColor,
+            strokeWidth: 3
+        }
+    };
+
+    var chart = new ApexCharts(element, options);
+    chart.render();
+}
+
+// createCPU()
+// createMEMORY()
+</script>
+{% endblock %}

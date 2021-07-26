@@ -1,0 +1,255 @@
+{% extends "base.html" %}
+{% block title %} DHCP Host {% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block content %}
+<div class="bg-light post fs-6 d-flex flex-column-fluid" id="kt_post">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Stepper-->
+        <div class="cusStp stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_stepper_example_vertical">
+            <!--begin::Aside-->
+            <div class="bg-white d-flex justify-content-center py-10  rounded justify-content-xl-start flex-row-auto w-100 w-xl-300px w-xxl-400px m-9">
+                <!--begin::Nav-->
+                <div class="stepper-nav d-flex flex-column my-auto mt-10 px-8 px-lg-10 px-xxl-15">
+                    <!--begin::Step 1-->
+                    <div class="stepper-item me-5 current" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">1</span>
+                        </div>
+                        <!--end::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                IP Details
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 1-->
+
+                    <!--begin::Step 2-->
+                    <div class="stepper-item me-5 " data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">2</span>
+                        </div>
+                        <!--end::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Virtual Instance
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 2-->
+
+                    <!--begin::Step 3-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">3</span>
+                        </div>
+                        <!--end::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Select Operating System
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 3-->
+
+                </div>
+                <!--end::Nav-->
+            </div>
+
+            <!--begin::Content-->
+            <div class="flex-row-fluid">
+                <!--begin::Form Removed w-lg-500px -->
+                <form class="bg-white form  mx-auto p-10 my-10" method="post" name="typeDebian" id="form"  action="{{ url_for('viewables.create_test') }}" novalidate="novalidate">
+                    <!--begin::Group-->
+                    <div class="mb-5">
+                        <!--begin::Step 1-->
+                        {% include "viewables/host/steps/step1.html" %}
+                        <!--begin::Step 1-->
+
+                        <!--begin::Step 2-->
+                        {% include "viewables/host/steps/step2.html" %}
+                        <!--begin::Step 2-->
+
+                        <!--begin::Step 3-->
+                        {% include "viewables/host/steps/step3.html" %}
+                        <!--begin::Step 3-->
+                    </div>
+                    <!--end::Group-->
+
+                    <!--begin::Actions-->
+                    <div class="d-flex flex-stack justify-content-end">
+                        <!--begin::Wrapper-->
+                        <!-- <div class="me-2">
+                            <button type="button" class="btn btn-light btn-active-light-primary" data-kt-stepper-action="previous">
+                                Back
+                            </button>
+                        </div> -->
+                        <!--end::Wrapper-->
+
+                        <!--begin::Wrapper-->
+                        <div>
+                            <button type="submit" class="btn btn-primary" data-kt-stepper-action="submit">
+                                <span class="indicator-label">
+                                    Submit
+                                </span>
+                                <span class="indicator-progress">
+                                    Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+
+                            <button type="button" class="btn btn-primary" data-kt-stepper-action="next">
+                                Continue
+                            </button>
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    <!--end::Actions-->
+                </form>
+                <!--end::Form-->
+            </div>
+        </div>
+        <!--end::Stepper-->
+    </div>
+</div>  
+{% endblock %}
+
+{% block script %}
+<script>
+
+
+// Stepper lement
+var element = document.querySelector("#kt_stepper_example_vertical");
+
+// Initialize Stepper
+var stepper = new KTStepper(element);
+
+// Handle next step
+stepper.on("kt.stepper.next", function (stepper) {
+    console.log(stepper.getCurrentStepIndex())
+    if(stepper.getCurrentStepIndex()==1){
+        step1check()
+    }
+    
+});
+
+// Handle previous step
+stepper.on("kt.stepper.previous", function (stepper) {
+    stepper.goPrevious(); // go previous step
+});
+
+const step1check = () =>{
+    const data = $('#form').serializeArray().reduce(function(obj, item) {
+        obj[item.name] = item.value;
+        return obj;
+    }, {});
+    
+    fetch("{{ url_for('viewables.add_host') }}", {
+    method: 'POST', 
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data['res']=='Success'){
+            console.log('Success:', data);
+            stepper.goNext()
+        }else{
+            showAlerts(data['reason'])
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        showAlerts(error)
+    });
+
+    // showAlerts("MAC address already exists！")
+    // showAlerts("IP address already exists！")
+    return false;
+}
+const showAlerts = (msg) =>{
+    toastr.options = {
+    "closeButton": true,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": true,
+    "positionClass": "toast-top-center",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "3000",
+    "hideDuration": "100",
+    "timeOut": 0,
+    "extendedTimeOut": 0,
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut",
+    "tapToDismiss": false
+    };
+
+    toastr.error(`${msg}`, "Error");
+
+    // toastr.options = {
+    //     "closeButton": false,
+    //     "debug": false,
+    //     "newestOnTop": false,
+    //     "progressBar": false,
+    //     "positionClass": "toast-top-center",
+    //     "preventDuplicates": false,
+    //     "onclick": null,
+    //     "showDuration": "3000",
+    //     "hideDuration": "5000",
+    //     "timeOut": "10000",
+    //     "extendedTimeOut": "10000",
+    //     "showEasing": "swing",
+    //     "hideEasing": "linear",
+    //     "showMethod": "fadeIn",
+    //     "hideMethod": "fadeOut"
+    // };
+    // toastr.error(msg);
+}
+</script>
+{% endblock %}

@@ -1,0 +1,128 @@
+<div class="flex-column" data-kt-stepper-element="content">
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label d-flex align-items-center">
+            <span >Get hostname</span>
+        </label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <input name="get_hostname"  type="text" class="form-control form-control-solid" placeholder="intial"
+        maxlength="10" size="20"/>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label">
+            Get domain
+        </label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <input name="get_domain" type="text" class="form-control form-control-solid" placeholder="fritz.box"
+        maxlength="10" size="20" />
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- P2 -->
+
+    <div class="fv-row d-flex justify-content-around mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Root login</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="root_login" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-around mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Make User</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="make_user" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label d-flex align-items-center">
+            <span >Root-password</span>
+        </label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <input name="root_password"  type="password" class="form-control form-control-solid"/>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label d-flex align-items-center">
+            <span >Confirm Root-password</span>
+        </label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <input name="root_password_again"  type="password" class="form-control form-control-solid"/>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-around mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Allow-password-weak</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="allow_password_weak" value="0" class="form-check-input" onclick="changeVal(this)" type="checkbox"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-around mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Encrypt-home</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="encrypt_home" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!--end::Input group-->
+</div>

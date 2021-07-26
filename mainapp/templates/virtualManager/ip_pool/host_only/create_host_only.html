@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block title %} Create Host-Only {% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block content %}
+
+<div class="card card-flush shadow-sm pt-6">
+    <div class="d-flex justify-content-center">
+        <form  method="POST" action="{{ url_for('virtualManager.create_host_only') }}" class="card w-75 p-3 ">
+            <div class=" my-6">
+                <label class="fs-3 form-label d-flex justify-content-center align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                    </svg>
+                    <span style="font-size: 2rem;margin-left: .5rem;">Add Host-Only</span>
+                </label>
+            </div>
+
+            <!-- bof -->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-4">Network Name</label>
+                <!--end::Label-->
+
+                <!--begin::input-->
+                <input name="network_name" required="required" maxlength="100" type="text" class="form-control form-control-solid" placeholder="nat-network"/>
+                
+                <!--end::input-->
+            </div>
+            <!-- eof -->
+
+            <!-- bof -->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-4">Bridge Interface Name</label>
+                <!--end::Label-->
+
+                <!--begin::input-->
+                <input name="bridge_interface_name" required="required" maxlength="20" type="text" class="form-control form-control-solid" placeholder="br0"/>
+                
+                <!--end::input-->
+            </div>
+            <!-- eof -->
+
+
+            <!-- bof -->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-4">IP Address</label>
+                <!--end::Label-->
+
+                <!--begin::input-->
+                <input name="ip" required="required" maxlength="20" type="text" class="form-control form-control-solid" placeholder=""/>
+                
+                <!--end::input-->
+            </div>
+            <!-- eof -->
+
+            <!-- bof -->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-4">Netmask</label>
+                <!--end::Label-->
+
+                <!--begin::input-->
+                <input name="netmask" required="required" maxlength="20" type="text" class="form-control form-control-solid" placeholder="255.255.255.0"/>
+                
+                <!--end::input-->
+            </div>
+            <!-- eof -->
+
+            <!-- bof -->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-4">DHCP Range Start</label>
+                <!--end::Label-->
+
+                <!--begin::input-->
+                <input name="dhcp_start" required="required" maxlength="20" type="text" class="form-control form-control-solid" placeholder=""/>
+                
+                <!--end::input-->
+            </div>
+            <!-- eof -->
+
+            <!-- bof -->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-4">DHCP Range End</label>
+                <!--end::Label-->
+
+                <!--begin::input-->
+                <input name="dhcp_end" required="required" maxlength="20" type="text" class="form-control form-control-solid" placeholder=""/>
+                
+                <!--end::input-->
+            </div>
+            <!-- eof -->
+
+            <!--begin::Input group-->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-4">Select Hypervisor</label>
+                <!--end::Label-->
+
+                <!--begin::Input-->
+                <select required name="hypervisor" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+                    {% for hypervisor in hypervisors %}    
+                    <option value="{{hypervisor.hostname}}">Hypervisor [ {{hypervisor.hostname}} ]</option>
+                    {% endfor %}
+                </select>
+                <!--end::Input-->
+            </div>
+            <!--end::Input group-->
+
+            <div class="d-flex justify-content-center my-6">
+                <button type="submit" class="btn btn-primary">
+                    Create
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+<script>
+
+</script>
+{% endblock %}

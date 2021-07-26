@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% block title %} Hypervisor Dashboard {% endblock %}
+{% block style %}
+<style>
+</style>
+{% endblock %}
+{% block content %}
+
+<div  class="card card-flush shadow-sm p-6">
+    <div class="card-header">
+        <h1 class="card-title fs-1 text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" style="color: rgb(99, 255, 47);" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+            </svg>
+              Machine : {{machine.name}}
+        </h1>
+    </div>
+    <div class="d-flex justify-content-center mt-10 text-gray-700">
+        <a href="#" style="width: 20vw;font-size: 1vw;" class="btn btn-primary">Power</a>
+        <a href="#" style="width: 20vw;font-size: 1vw;" class="btn btn-bg-light btn-active-color-danger">Console</a>
+        <a href="#" style="width: 20vw;font-size: 1vw;" class="btn btn-bg-light btn-active-color-danger">Upgrade</a>
+        <a href="#" style="width: 20vw;font-size: 1vw;" class="btn btn-bg-light btn-active-color-danger">Settings</a>
+    </div>
+
+
+
+    <div id="main" class="d-flex justify-content-around mt-10 mb-10">
+        <div>
+            <div class="fs-3 text-gray-800">Memory:</div>
+            <a href="#" class="btn btn-bg-light d-flex align-items-center justify-content-center" style="width: 10vw;height: 75px;">
+                <div class="fs-3 text-gray-700">{{machine.mem}} MB</div>
+            </a>
+        </div>
+
+        <div>
+            <div class="fs-3 text-gray-800">Processors:</div>
+            <a href="#" class="btn btn-bg-light d-flex align-items-center justify-content-center" style="width: 10vw;height: 75px;">
+                <div class="fs-3 text-gray-700">{{machine.cpus}}</div>
+            </a>
+        </div>
+
+        <div>
+            <div class="fs-3 text-gray-800">Storage:</div>
+            <a href="#" class="btn btn-bg-light d-flex align-items-center justify-content-center" style="width: 10vw;height: 75px;">
+                <div class="fs-3 text-gray-700">{{machine.storage}} GB</div>
+            </a>
+        </div>
+
+        <div>
+            <div class="fs-3 text-gray-800">State:</div>
+            <a href="#" class="btn btn-bg-light d-flex align-items-center justify-content-center" style="width: 10vw;height: 75px;">
+                {% if machine.state=="Running" %}
+                <svg style="color: rgb(99, 255, 47);" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+                </svg>
+                {%elif machine.state=="Paused" %}
+                <svg style="color: tomato;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pause-fill" viewBox="0 0 16 16">
+                    <path d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"/>
+                </svg>
+                {% else %}
+                <svg style="color: tomato;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-stop-fill" viewBox="0 0 16 16">
+                    <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
+                </svg>
+                {% endif %}
+
+                <div class="fs-3 text-gray-700">{{machine.state}}</div>
+            </a>
+        </div>     
+    </div>
+</div>
+
+<div  class="card card-flush shadow-sm p-6 mt-12">
+    <div  class="d-flex justify-content-around mt-10 mb-10 mx-10">
+        {% if machine.state=="Stopped"%}
+        <form method="post" action="/machine/changestate/{{uuidString}}">
+            <input hidden name="changeState" value="start">
+            <button type="submit" class="btn btn-light-primary d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+                <i class="icon fa fa-play"></i>
+                <div>Start</div>
+            </button>
+        </form>
+        {% else %}
+        <button disabled class="btn btn-light-danger d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+            <i class="icon fa fa-play"></i>
+            <div>Start</div>
+        </button>
+        {% endif %}
+
+
+        <!--  -->
+        {% if machine.state=="Running" %}
+        <form method="post" action="/machine/changestate/{{uuidString}}">
+            <input hidden name="changeState" value="pause">
+            <button type="submit" class="btn btn-light-primary d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+                <i class="icon fa fa-pause"></i>
+                <div>Pause</div>
+            </button>
+        </form>
+        {% else %}
+        <button disabled class="btn btn-light-danger d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+            <i class="icon fa fa-pause"></i>
+            <div>Pause</div>
+        </button>
+        {% endif %}
+        
+        <!--  -->
+        {% if machine.state=="Paused" %}
+        <form method="post" action="/machine/changestate/{{uuidString}}">
+            <input hidden name="changeState" value="resume">
+            <button type="submit" class="btn btn-light-primary d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+                <i class="icon fa fa-forward"></i>
+                <div>Resume</div>
+            </button>
+        </form>
+        {% else %}
+        <button disabled class="btn btn-light-danger d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+            <i class="icon fa fa-forward"></i>
+            <div>Resume</div>
+        </button>
+        {% endif %}
+
+
+        <!--  -->
+        {% if machine.state=="Running" %}
+        <form method="post" action="/machine/changestate/{{uuidString}}">
+            <input hidden name="changeState" value="stop">
+            <button type="submit" class="btn btn-light-primary d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+                <i class="icon fa fa-stop"></i>
+                <div>Stop</div>
+            </button>
+        </form>
+        {% else %}
+        <button disabled class="btn btn-light-danger d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+            <i class="icon fa fa-stop"></i>
+            <div>Stop</div>
+        </button>
+        {% endif %}
+
+
+        <!--  -->
+        {% if machine.state=="Running" %}
+        <form method="post" action="/machine/changestate/{{uuidString}}">
+            <input hidden name="changeState" value="restart">
+            <button type="submit" class="btn btn-light-primary d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+                <i class="icon fa fa-power-off"></i>
+                <div>Restart</div>
+            </button>
+        </form>
+        {% else %}
+        <button disabled class="btn btn-light-danger d-flex align-items-center justify-content-center" style="width: 10vw;height: 50px;">
+            <i class="icon fa fa-power-off"></i>
+            <div>Restart</div>
+        </button>
+        {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}
+{% block script %}
+<script>
+    
+</script>
+{% endblock %}

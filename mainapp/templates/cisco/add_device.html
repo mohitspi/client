@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %} c {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+  <div class="card w-75 p-3 ">
+      <div class="card-header d-flex justify-content-center align-items-center">
+          <h1>Add Device</h1>
+      </div>
+      <form method="POST" action="/add_device_new" class="card-body">
+          <!-- Form -->
+          <label class="required form-label">Ip</label>
+          <input name="ip" required id="ip" type="text" class="form-control form-control-solid" placeholder="Your Ip"/>
+  
+          <label class="required form-label">Device Type</label>
+          <input name="device_type" required id="device_type" type="text" class="form-control form-control-solid" placeholder="Device Type"/>
+
+          <label class="required form-label">Username</label>
+          <input name="username" required id="username" type="username" class="form-control form-control-solid" placeholder="Your Username"/>
+
+
+          <label class="required form-label">Password</label>
+          <input name="password" required id="password" type="password" class="form-control form-control-solid" placeholder="Your Password"/>
+
+
+
+          <label class="required form-label">Secret</label>
+          <input name="secret" required id="secret" type="text" class="form-control form-control-solid" placeholder="Your Secret"/>
+
+
+
+          <label class="required form-label">Global Delay Factor</label>
+          <input name="global_delay_factor" required id="global_delay_factor" type="text" class="form-control form-control-solid" placeholder="Your Global Delay Factor"/>
+
+          <label class="required form-label">Verbose</label>
+          <input name="verbose" required id="verbose" type="text" class="form-control form-control-solid" placeholder="Your Verbose"/>
+
+
+          <div class="d-flex justify-content-center my-8">
+              <button class="btn btn-dark">Add Device</button>
+          </div>
+          <!-- End Form -->
+      </form>
+  </div>
+</div>
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

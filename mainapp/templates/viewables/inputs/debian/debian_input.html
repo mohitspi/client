@@ -1,0 +1,850 @@
+{% extends 'base.html' %}
+{% block style %}
+<style>
+    .cusStp{
+        display: flex;justify-content: center;align-items: center;
+    }
+</style>
+{% endblock %}
+{% block content %}
+<div class="bg-light post fs-6 d-flex flex-column-fluid" id="kt_post">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Stepper-->
+        <div class="cusStp stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_stepper_example_vertical">
+            <!--begin::Aside-->
+            <div class="bg-white d-flex justify-content-center py-10 bg-white rounded justify-content-xl-start flex-row-auto w-100 w-xl-300px w-xxl-400px m-9">
+                <!--begin::Nav-->
+                <div class="stepper-nav d-flex flex-column my-auto mt-10 px-8 px-lg-10 px-xxl-15">
+                    <!--begin::Step 1-->
+                    <div class="stepper-item me-5 current" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">1</span>
+                        </div>
+                        <!--end::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Local
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 1-->
+
+                    <!--begin::Step 2-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">2</span>
+                        </div>
+                        <!--begin::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Keyboard & Country
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 2-->
+
+                    <!--begin::Step 3-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">3</span>
+                        </div>
+                        <!--begin::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Network Settings
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 3-->
+
+                    <!--begin::Step 4-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">4</span>
+                        </div>
+                        <!--begin::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Hostname
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 4-->
+
+                    <!--begin::Step 5-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">5</span>
+                        </div>
+                        <!--begin::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Clock & Timezone
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 5-->
+
+                    <!--begin::Step 6-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">6</span>
+                        </div>
+                        <!--begin::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Parted
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 6-->
+
+                    <!--begin::Step 7-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">7</span>
+                        </div>
+                        <!--begin::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Guided
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 7-->
+
+                    <!--begin::Step 8-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">8</span>
+                        </div>
+                        <!--begin::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Sizes
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 8-->
+
+                    <!--begin::Step 9-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">9</span>
+                        </div>
+                        <!--begin::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Guided
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 9-->
+                </div>
+                <!--end::Nav-->
+            </div>
+
+            <!--begin::Content-->
+            <div class="flex-row-fluid">
+                <!--begin::Form Removed w-lg-500px -->
+                <form class="bg-white form  mx-auto p-10 my-10" method="post" name="typeDebian" id="my-form"  action="{{ url_for('viewables.debianPOSTAPI', conf_name=conf_name, level=level) }}" novalidate="novalidate">
+                    <!--begin::Group-->
+                    <div class="mb-5">
+                        <!--begin::Step 1-->
+                        {% include "viewables/inputs/debian/debian_input/step1.html" %}
+                        <!--begin::Step 1-->
+
+                        <!--begin::Step 2-->
+                        {% include "viewables/inputs/debian/debian_input/step2.html" %}
+                        <!--begin::Step 2-->
+
+                        <!--begin::Step 3-->
+                        {% include "viewables/inputs/debian/debian_input/step3.html" %}
+                        <!--begin::Step 3-->
+
+                        <!--begin::Step 4-->
+                        {% include "viewables/inputs/debian/debian_input/step4.html" %}
+                        <!--begin::Step 4-->
+
+                        <!--begin::Step 5-->
+                        {% include "viewables/inputs/debian/debian_input/step5.html" %}
+                        <!--begin::Step 5-->
+
+                        <!--begin::Step 6-->
+                        {% include "viewables/inputs/debian/debian_input/step6.html" %}
+                        <!--begin::Step 6-->
+                        
+                        <!--begin::Step 7-->
+                        {% include "viewables/inputs/debian/debian_input/step7.html" %}
+                        <!--begin::Step 7-->
+
+                        <!--begin::Step 8-->
+                        {% include "viewables/inputs/debian/debian_input/step8.html" %}
+                        <!--begin::Step 8-->
+
+                        <!--begin::Step 9-->
+                        {% include "viewables/inputs/debian/debian_input/step9.html" %}
+                        <!--begin::Step 9-->
+                    </div>
+                    <!--end::Group-->
+
+                    <!--begin::Actions-->
+                    <div class="d-flex flex-stack">
+                        <!--begin::Wrapper-->
+                        <div class="me-2">
+                            <button type="button" class="btn btn-light btn-active-light-primary" data-kt-stepper-action="previous">
+                                Back
+                            </button>
+                        </div>
+                        <!--end::Wrapper-->
+
+                        <!--begin::Wrapper-->
+                        <div>
+                            <button type="submit" class="btn btn-primary" data-kt-stepper-action="submit">
+                                <span class="indicator-label">
+                                    Submit
+                                </span>
+                                <span class="indicator-progress">
+                                    Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+
+                            <button type="button" class="btn btn-primary" data-kt-stepper-action="next">
+                                Continue
+                            </button>
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    <!--end::Actions-->
+                </form>
+                <!--end::Form-->
+            </div>
+        </div>
+        <!--end::Stepper-->
+    </div>
+</div>  
+
+{% endblock %}
+{% block script %}
+<script>
+    // Stepper lement
+var element = document.querySelector("#kt_stepper_example_vertical");
+
+// Initialize Stepper
+var stepper = new KTStepper(element);
+
+// Handle next step
+stepper.on("kt.stepper.next", function (stepper) {
+    stepper.goNext(); // go next step
+});
+
+// Handle previous step
+stepper.on("kt.stepper.previous", function (stepper) {
+    stepper.goPrevious(); // go previous step
+});
+
+// Custom
+//For all Step Switch
+function changeVal(e){
+    if (e.value == '0'){
+        e.value = '1'
+    }else{
+        e.value = '0'
+    }
+}
+//Step 1 multi_language_environment
+$("#multi_locale_check").click(function() {
+    let multi_language_environment_block = document.getElementById("multi_language_environment")
+    let multi_locale_val = document.getElementById("multi_locale_check")
+    console.log(multi_locale_val)
+    if (multi_locale_val.value == '1'){
+        multi_language_environment_block.style.display = "block";
+    }else{
+        multi_language_environment_block.style.display = "none";
+    }
+});
+// get val multi lang env
+$('#get_value_from_mle').on('change', function(){
+    var selected = $(this).find("option:selected");
+    var arrSelected = [];
+    selected.each(function(){
+       arrSelected.push($(this).val());
+    });
+    let purse_mle = document.querySelector('#purse-mle')
+    purse_mle.value = arrSelected;
+});
+
+// Get val multi ins addon
+$('#get_value_from_IA').on('change', function(){
+    let selected = $(this).find("option:selected");
+    let arrSelected = [];
+    selected.each(function(){
+       arrSelected.push($(this).val());
+    });
+    let purse_IA = document.querySelector('#purse-IA')
+    purse_IA.value = arrSelected;
+});
+//Step 3
+let ipv4 = document.getElementById("ipv4");
+    let ipv4_block = document.getElementById("ipv4_block");
+    $("#ipv4").click(function() {
+        if (ipv4.value == "1"){
+            ipv4.value = '0';
+        }else{
+            ipv4.value = '1';
+        }
+        if (ipv4.value == '1'){
+            ipv4_block.style.display = "block";
+        }else{
+            ipv4_block.style.display = "none";
+        }
+    });
+
+// Step 5
+$("#ntp").click(function(){
+    let val = document.querySelector("#ntp")
+    if (val.value == '1'){
+        let disB = document.querySelector("#ntp_block")
+        disB.style.display = "block"
+    }else{
+        let disB = document.querySelector("#ntp_block")
+        disB.style.display = "none"
+    }
+})
+// step 7
+function changeSlider(e,c){
+    c = document.getElementById(c)
+    c.innerHTML = e.value + " MB"
+}
+// All country
+let country_data = {
+    "DZ": {
+        "country": "Algeria",
+        "region": "Africa"
+        },
+    "AO": {
+        "country": "Angola",
+        "region": "Africa"
+        },
+        "BJ": {
+        "country": "Benin",
+        "region": "Africa"
+        },
+        "BW": {
+        "country": "Botswana",
+        "region": "Africa"
+        },
+        "BF": {
+        "country": "Burkina Faso",
+        "region": "Africa"
+        },
+        "BI": {
+        "country": "Burundi",
+        "region": "Africa"
+        },
+        "CV": {
+        "country": "Cabo Verde",
+        "region": "Africa"
+        },
+        "CM": {
+        "country": "Cameroon",
+        "region": "Africa"
+        },
+        "CF": {
+        "country": "Central African Republic (the)",
+        "region": "Africa"
+        },
+        "TD": {
+        "country": "Chad",
+        "region": "Africa"
+        },
+        "KM": {
+        "country": "Comoros ",
+        "region": "Africa"
+        },
+        "CD": {
+        "country": "Congo (the Democratic Republic of the)",
+        "region": "Africa"
+        },
+        "CG": {
+        "country": "Congo (the)",
+        "region": "Africa"
+        },
+        "CI": {
+        "country": "Côte d'Ivoire",
+        "region": "Africa"
+        },
+        "DJ": {
+        "country": "Djibouti",
+        "region": "Africa"
+        },
+        "EG": {
+        "country": "Egypt",
+        "region": "Africa"
+        },
+        "GQ": {
+        "country": "Equatorial Guinea",
+        "region": "Africa"
+        },
+        "ER": {
+        "country": "Eritrea",
+        "region": "Africa"
+        },
+        "ET": {
+        "country": "Ethiopia",
+        "region": "Africa"
+        },
+        "GA": {
+        "country": "Gabon",
+        "region": "Africa"
+        },
+        "GM": {
+        "country": "Gambia ",
+        "region": "Africa"
+        },
+        "GH": {
+        "country": "Ghana",
+        "region": "Africa"
+        },
+        "GN": {
+        "country": "Guinea",
+        "region": "Africa"
+        },
+        "GW": {
+        "country": "Guinea-Bissau",
+        "region": "Africa"
+        },
+        "KE": {
+        "country": "Kenya",
+        "region": "Africa"
+        },
+        "LS": {
+        "country": "Lesotho",
+        "region": "Africa"
+        },
+        "LR": {
+        "country": "Liberia",
+        "region": "Africa"
+        },
+        "LY": {
+        "country": "Libya",
+        "region": "Africa"
+        },
+        "MG": {
+        "country": "Madagascar",
+        "region": "Africa"
+        },
+        "MW": {
+        "country": "Malawi",
+        "region": "Africa"
+        },
+        "ML": {
+        "country": "Mali",
+        "region": "Africa"
+        },
+        "MR": {
+        "country": "Mauritania",
+        "region": "Africa"
+        },
+        "MU": {
+        "country": "Mauritius",
+        "region": "Africa"
+        },
+        "YT": {
+        "country": "Mayotte",
+        "region": "Africa"
+        },
+        "MA": {
+        "country": "Morocco",
+        "region": "Africa"
+        },
+        "MZ": {
+        "country": "Mozambique",
+        "region": "Africa"
+        },
+        "NA": {
+        "country": "Namibia",
+        "region": "Africa"
+        },
+        "NE": {
+        "country": "Niger (the)",
+        "region": "Africa"
+        },
+        "NG": {
+        "country": "Nigeria",
+        "region": "Africa"
+        },
+        "RE": {
+        "country": "Réunion",
+        "region": "Africa"
+        },
+        "RW": {
+        "country": "Rwanda",
+        "region": "Africa"
+        },
+        "SH": {
+        "country": "Saint Helena, Ascension and Tristan da Cunha",
+        "region": "Africa"
+        },
+        "ST": {
+        "country": "Sao Tome and Principe",
+        "region": "Africa"
+        },
+        "SN": {
+        "country": "Senegal",
+        "region": "Africa"
+        },
+        "SC": {
+        "country": "Seychelles",
+        "region": "Africa"
+        },
+        "SL": {
+        "country": "Sierra Leone",
+        "region": "Africa"
+        },
+        "SO": {
+        "country": "Somalia",
+        "region": "Africa"
+        },
+        "ZA": {
+        "country": "South Africa",
+        "region": "Africa"
+        },
+        "SS": {
+        "country": "South Sudan",
+        "region": "Africa"
+        },
+        "SD": {
+        "country": "Sudan ",
+        "region": "Africa"
+        },
+        "SZ": {
+        "country": "Swaziland",
+        "region": "Africa"
+        },
+        "TZ": {
+        "country": "Tanzania, United Republic of",
+        "region": "Africa"
+        },
+        "TG": {
+        "country": "Togo",
+        "region": "Africa"
+        },
+        "TN": {
+        "country": "Tunisia",
+        "region": "Africa"
+        },
+        "UG": {
+        "country": "Uganda",
+        "region": "Africa"
+        },
+        "EH": {
+        "country": "Western Sahara*",
+        "region": "Africa"
+        },
+        "ZM": {
+        "country": "Zambia",
+        "region": "Africa"
+        },
+        "ZW": {
+        "country": "Zimbabwe",
+        "region": "Africa"
+        },
+        "AQ": {
+        "country": "Antarctica",
+        "region": "Antarctic"
+        },
+        "BV": {
+        "country": "Bouvet Island",
+        "region": "Antarctic"
+        },
+        "TF": {
+        "country": "French Southern Territories (the)",
+        "region": "Antarctic"
+        },
+        "HM": {
+        "country": "Heard Island and McDonald Islands",
+        "region": "Antarctic"
+        },
+        "GS": {
+        "country": "South Georgia and the South Sandwich Islands",
+        "region": "Antarctic"
+        },
+        "AF": {
+        "country": "Afghanistan",
+        "region": "Asia"
+        },
+        "AM": {
+        "country": "Armenia",
+        "region": "Asia"
+        },
+        "AZ": {
+        "country": "Azerbaijan",
+        "region": "Asia"
+        },
+        "BD": {
+        "country": "Bangladesh",
+        "region": "Asia"
+        },
+        "BT": {
+        "country": "Bhutan",
+        "region": "Asia"
+        },
+        "IO": {
+        "country": "British Indian Ocean Territory (the)",
+        "region": "Asia"
+        },
+        "BN": {
+        "country": "Brunei Darussalam",
+        "region": "Asia"
+        },
+        "KH": {
+        "country": "Cambodia",
+        "region": "Asia"
+        },
+        "CN": {
+        "country": "China",
+        "region": "Asia"
+        },
+        "GE": {
+        "country": "Georgia",
+        "region": "Asia"
+        },
+        "HK": {
+        "country": "Hong Kong",
+        "region": "Asia"
+        },
+        "IN": {
+        "country": "India",
+        "region": "Asia"
+        },
+        "ID": {
+        "country": "Indonesia",
+        "region": "Asia"
+        },
+        "JP": {
+        "country": "Japan",
+        "region": "Asia"
+        },
+        "KZ": {
+        "country": "Kazakhstan",
+        "region": "Asia"
+        },
+        "KP": {
+        "country": "Korea (the Democratic People's Republic of)",
+        "region": "Asia"
+        },
+        "KR": {
+        "country": "Korea (the Republic of)",
+        "region": "Asia"
+        },
+        "KG": {
+        "country": "Kyrgyzstan",
+        "region": "Asia"
+        },
+        "LA": {
+        "country": "Lao People's Democratic Republic (the)",
+        "region": "Asia"
+        },
+        "MO": {
+        "country": "Macao",
+        "region": "Asia"
+        },
+        "MY": {
+        "country": "Malaysia",
+        "region": "Asia"
+        },
+        "MV": {
+        "country": "Maldives",
+        "region": "Asia"
+        },
+        "MN": {
+        "country": "Mongolia",
+        "region": "Asia"
+        },
+        "MM": {
+        "country": "Myanmar",
+        "region": "Asia"
+        },
+        "NP": {
+        "country": "Nepal",
+        "region": "Asia"
+        },
+        "PK": {
+        "country": "Pakistan",
+        "region": "Asia"
+        },
+        "PH": {
+        "country": "Philippines (the)",
+        "region": "Asia"
+        },
+        "SG": {
+        "country": "Singapore",
+        "region": "Asia"
+        },
+        "LK": {
+        "country": "Sri Lanka",
+        "region": "Asia"
+        },
+        "TW": {
+        "country": "Taiwan (Province of China)",
+        "region": "Asia"
+        },
+        "TJ": {
+        "country": "Tajikistan",
+        "region": "Asia"
+        },
+        "TH": {
+        "country": "Thailand",
+        "region": "Asia"
+        },
+        "TL": {
+        "country": "Timor-Leste",
+        "region": "Asia"
+        },
+        "TM": {
+        "country": "Turkmenistan",
+        "region": "Asia"
+        },
+        "UZ": {
+        "country": "Uzbekistan",
+        "region": "Asia"
+        },
+        "VN": {
+        "country": "Vietnam",
+        "region": "Asia"
+        },
+        "BZ": {
+        "country": "Belize",
+        "region": "Central America"
+        }
+ }
+let fetched_country_data = []
+for(let property in country_data){
+    fetched_country_data.push(country_data[property]['country'])
+}
+fetched_country_data.map(e=>{
+    let adding_country = document.getElementById("country_add")
+    adding_country.innerHTML += `<option value="${e}">${e}</option>`
+})
+</script>
+
+{% endblock %}

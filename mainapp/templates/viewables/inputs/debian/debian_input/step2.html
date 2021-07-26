@@ -1,0 +1,65 @@
+<div class="flex-column" data-kt-stepper-element="content">
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Xkb-Keymap</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="xkb_keymap" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for xkbkeymap in context.xkbkeymaps %}
+                <option value="{{xkbkeymap}}">{{xkbkeymap}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Language_name_fb</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="language_name_fb" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for language_name_fb in context.language_name_fbs %}
+                <option value="{{language_name_fb}}">{{language_name_fb}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Country name</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="country_name" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for language_name_fb in context.language_name_fbs %}
+                <option value="{{language_name_fb}}">{{language_name_fb}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Layoutcode</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="layoutcode" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for layoutcode in context.layoutcodes %}
+                <option value="{{layoutcode}}">{{layoutcode}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+</div>

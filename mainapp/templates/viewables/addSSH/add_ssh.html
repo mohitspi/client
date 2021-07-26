@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %} Add SSH {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+  <div class="card w-75 p-3 ">
+      <div class="card-header d-flex justify-content-start align-items-center">
+          <h1 class="text-gray-800">Add an SSH key</h1>
+      </div>
+      <form method="POST" action="{{ url_for('viewables.createSSH') }}" class="card-body">
+          <p class="text-gray-600 fs-9 fw-bold">SSH Keys allow you to authenticate with a more secure way to your server than raditional password authentication. The SSH key needs to be in OpenSSH format</p>
+          <!-- Form -->
+          <label class="required form-label text-gray-600">SSH Key</label>
+          <textarea name="ssh_key" rows="10" required class="form-control form-control-solid" style="border: 1px solid tomato;"></textarea>
+  
+          <!-- <label class="required form-label"></label> -->
+          <input name="name" required class="form-control form-control-solid mt-6" placeholder="Name *"/>
+
+          <div class="d-flex justify-content-center my-8">
+              <button class="btn btn-dark">ADD SSH KEY</button>
+          </div>
+          <!-- End Form -->
+      </form>
+  </div>
+</div>
+
+
+<div class="d-flex justify-content-center mt-15">
+    <div class="card w-75 p-3 ">
+        <div class="card-header d-flex justify-content-center align-items-center">
+            <h1 class="text-gray-800">My SSH keys</h1>
+        </div>
+        <div class="card-body">
+            <div class="card-header ">
+                {% for x in allSSH %}
+                <div class="d-flex justify-content-between align-items-center my-4">
+                    <h1 class="text-gray-600 fs-5 fw-bold">{{x.name}}</h1>
+                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#kt_modal_{{x.id}}">
+                    Show
+                </button>
+                <div class="modal fade" tabindex="-1" id="kt_modal_{{x.id}}">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">{{x.name}}</h5>
+
+                                <!--begin::Close-->
+                                <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                                    <span class="svg-icon svg-icon-2x"></span>
+                                </div>
+                                <!--end::Close-->
+                            </div>
+
+                            <div class="modal-body">
+                                <textarea style="min-width: 100%;" rows="10" class="form-control form-control-solid" >{{x.ssh}}</textarea>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block script %}
+
+{% endblock %}

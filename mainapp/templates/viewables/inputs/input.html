@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if autoGenerate == 'ba' %}
+{% include 'inputs/windows_input.html' %}
+
+{% elif autoGenerate == 'dnsmasq' %}
+{% include 'input/managed_service/dnsmasq/dnsmasq_input.html' %}
+
+{% elif autoGenerate == 'windows' and conf_name=='2008R2' and level == 'easy' %}
+{% include 'inputs/windows_input.html' %}
+
+{% elif autoGenerate == 'windows' and level == 'expert' %}
+{% include 'inputs/windows_input.html' %}
+
+{% elif autoGenerate == 'windows' and level == 'crypted' %}
+{% include 'input/operating-system/windows/windows_input.html' %}
+
+{% elif autoGenerate == 'windows_crypted' %}
+{% include 'input/managed_service/windows_crypted_input.html' %}
+
+{% elif autoGenerate == 'debian' %}
+{% include 'inputs/debian_input.html' %}
+
+{% elif autoGenerate == 'debian_crypted' %}
+{% include 'input/managed_service/debian_crypted_input.html' %}
+
+{% elif autoGenerate == 'centos' %}
+{% include 'views/inputs/centos_input.html' %}
+
+{% elif autoGenerate == 'centos_crypted' %}
+{% include 'input/managed_service/centos_crypted_input.html' %}
+
+{% elif autoGenerate == 'gentoo' %}
+{% include 'inputs/gentoo_input.html' %}
+
+{% elif autoGenerate == 'gentoo_crypted' %}
+{% include 'input/managed_service/gentoo_crypted_input.html' %}
+
+{% else %}
+Error
+{% endif %}
+{% endblock %}

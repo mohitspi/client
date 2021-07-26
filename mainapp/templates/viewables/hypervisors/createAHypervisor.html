@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %} Hypervisors {% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block content %}
+
+<div class="card card-flush shadow-sm pt-6">
+    <div class="d-flex justify-content-center">
+        <form  method="POST" action="{{ url_for('viewables.apiCreateAhypervisors') }}" class="card w-75 p-3 ">
+            <div class=" my-6">
+                <label class="fs-3 form-label d-flex justify-content-center align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-hdd-stack-fill" viewBox="0 0 16 16">
+                        <path d="M2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2H2zm.5 3a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm2 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2zm.5 3a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm2 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1z"/>
+                    </svg>
+                    <span style="font-size: 2rem;margin-left: .5rem;">Connect new hypervisor</span>
+                </label>
+            </div>
+            <!-- bof -->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-4">Hostname/IP</label>
+                <!--end::Label-->
+
+                <!--begin::input-->
+                <input name="hostname" required="required" maxlength="100" type="text" class="form-control form-control-solid" placeholder="Hostname or Ip Address"/>
+                
+                <!--end::input-->
+            </div>
+            <!-- eof -->
+
+            <!-- <div class="fv-row mb-10">
+                <label class="form-label fs-4">User</label>
+
+                <input name="user" required="required" value="root" maxlength="100" type="text" class="form-control form-control-solid" placeholder="app01"/>
+
+            </div> -->
+
+
+            <!-- bof -->
+            <div class="fv-row mb-10">
+                <!--begin::Label-->
+                <label class="form-label fs-4">Password</label>
+                <!--end::Label-->
+
+                <!--begin::input-->
+                <input name="password" maxlength="100" type="password" class="form-control form-control-solid" placeholder="we don't store it, we set up key-based login"/>
+                
+                <!--end::input-->
+            </div>
+            <!-- eof -->
+            <div class="d-flex justify-content-center my-6">
+                <button type="submit" class="btn btn-primary">
+                    Connect
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+
+{% endblock %}

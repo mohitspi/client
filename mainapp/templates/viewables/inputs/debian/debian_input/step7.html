@@ -1,0 +1,200 @@
+<div class="flex-column" data-kt-stepper-element="content">
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Guided Size</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="guided_size" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for size in context.sizes %}
+                <option value="{{size}}">{{size}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Choose Recipe</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="choose_recipe" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for recipe in context.recipes %}
+                <option value="{{recipe}}">{{recipe}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">default filesystem</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="default_filesystem" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for filesystem in context.filesystems %}
+                <option value="{{filesystem}}">{{filesystem}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Disk</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="disk" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for disk in context.disks %}
+                <option value="{{disk}}">{{disk}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">New Vg Name</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <input name="new_vg_name" type="text" class="form-control form-control-solid"  placeholder="vg-server"/>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- P22222 -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4" >Boot Size</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <label class="form-label" id="boot_size" >300 MB</label>
+        <div class="range">
+            <input type="range" name="boot_size" class="form-range" min='100' max="1000" value="300" oninput="changeSlider(this,'boot_size')" />
+        </div>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row d-flex justify-content-between mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">No Swap</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="no_swap" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!-- end:input-group -->
+
+    <!-- start:input-group -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4" >Swap Size</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <label class="form-label" id="swap_size" >1024 MB</label>
+        <div class="range">
+            <input type="range" class="form-range" name="swap_size"  min="1024" max="4096" value="1024" step="1024" oninput="changeSlider(this,'swap_size')" />
+        </div>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4" >(/)Size</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <label class="form-label" id="root_size" >3000 MB</label>
+        <div class="range">
+            <input type="range" class="form-range" name="root_size"  min="1000" max="10000" value="3000" step="1000" oninput="changeSlider(this,'root_size')" />
+        </div>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4" >usr Size</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <label class="form-label" id="usr_size" >3000 MB</label>
+        <div class="range">
+            <input type="range" class="form-range" name="usr_size" name="usr_size"  min="1000" max="5000" value="3000" step="1000" oninput="changeSlider(this,'usr_size')" />
+        </div>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4" >Home Size</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <label class="form-label" id="home_size" >10000 MB</label>
+        <div class="range">
+            <input type="range" class="form-range" name="home_size"  min="1000" max="5000" value="3000" step="1000" oninput="changeSlider(this,'home_size')" />
+        </div>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4" >Tmp Size</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <label class="form-label" id="tmp_size" >1000 MB</label>
+        <div class="range">
+            <input type="range" class="form-range" name="tmp_size"  min="1000" max="50000" value="1000" step="1000" oninput="changeSlider(this,'tmp_size')" />
+        </div>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4" >Var Size</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <label class="form-label" id="var_size" >10000 MB</label>
+        <div class="range">
+            <input type="range" class="form-range" name="var_size" min="1000" max="-1" value="10000" step="1000" oninput="changeSlider(this,'var_size')" />
+        </div>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+</div>

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %} Mechines {% endblock %}
+{% block style %}
+<style>
+    .bme{
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
+{% block content %}
+
+<div class="card card-flush shadow-sm pt-6 bme">
+    <div class="card-header">
+        <h1 class="card-title fs-1 text-gray-700">
+            <i class="fas fa-desktop fa-sm px-2"></i>
+              Mechines
+        </h1>
+    </div>
+    <div class="card-body py-5">
+        <div class="d-flex">
+            <div class="bg-dark p-4 rounded mx-2">
+                <svg style="color:white" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </div>
+            <input type="text" id="searchBar" class="form-control" placeholder="Search"/>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="card-footer">
+        
+        <table id="kt_datatable_example_1" class="table table-row-bordered gy-5">
+            <thead>
+                <tr class="fw-bold fs-6 text-muted">
+                    <th>Name</th>
+                    <th>Hypervisor</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="table">
+                {% for machine in machines %}
+                <tr>
+                    <td class="text-success">{{machine.vmName}}</td>
+                    <td class="text-danger">
+                       {{machine.hypervisor}}
+                    </td>
+                    <td class="text-success">{{machine.state}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+{% endblock %}
+{% block script %}
+<script>
+    $(document).ready(function(){
+        $("#searchBar").on("keyup", function() {
+          var value = $(this).val().toLowerCase();
+          $("#table tr").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+          });
+        });
+      });
+</script>
+{% endblock %}

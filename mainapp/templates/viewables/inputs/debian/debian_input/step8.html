@@ -1,0 +1,51 @@
+<div class="flex-column" data-kt-stepper-element="content">
+
+     <!-- start:input-group -->
+     <div class="fv-row d-flex justify-content-between mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Confirm Write New Label</label>
+        <!--end::Label-->
+
+        <!--begin::Switch-->
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="confirm_write_new_label" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+        <!--end::Switch-->
+    </div>
+    <!-- end:input-group -->
+
+    <!--begin::Input group-->
+    <div class="fv-row mb-10">
+        <!--begin::Label-->
+        <label class="form-label fs-4">Choose Partition Method</label>
+        <!--end::Label-->
+
+        <!--begin::Input-->
+        <select name="choose_partition_method" class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option">
+            {% for partition_method in context.partition_methods %}
+                <option value="{{partition_method}}">{{partition_method}}</option>
+            {%endfor%}
+        </select>
+        <!--end::Input-->
+    </div>
+    <!--end::Input group-->
+
+    <!-- start:input-group -->
+    <!-- <div class="fv-row d-flex justify-content-between mb-10">
+        <label class="form-label fs-4">Confirm</label>
+
+
+        <label class="form-check form-switch form-check-custom form-check-solid">
+            <input name="confirm" class="form-check-input" onclick="changeVal(this)" type="checkbox" value="0"/>
+            <span class="form-check-label">
+                Switch
+            </span>
+        </label>
+
+    </div> -->
+    <!-- end:input-group -->
+
+</div>

@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+{% block title %} Create VM {% endblock %}
+{% block style %}
+
+{% endblock %}
+{% block content %}
+<div class="bg-light post fs-6 d-flex flex-column-fluid" id="kt_post">
+    <!--begin::Container-->
+    <div class="container">
+        <!--begin::Stepper-->
+        <div class="cusStp stepper stepper-pills stepper-column d-flex flex-column flex-xl-row flex-row-fluid" id="kt_stepper_example_vertical">
+            <!--begin::Aside-->
+            <div class="bg-white d-flex justify-content-center py-10  rounded justify-content-xl-start flex-row-auto w-100 w-xl-300px w-xxl-400px m-9">
+                <!--begin::Nav-->
+                <div class="stepper-nav d-flex flex-column my-auto mt-10 px-8 px-lg-10 px-xxl-15">
+                    <!--begin::Step 1-->
+                    <div class="stepper-item me-5 current" data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">1</span>
+                        </div>
+                        <!--end::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Select Hypervisor
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 1-->
+
+                    <!--begin::Step 2-->
+                    <div class="stepper-item me-5 " data-kt-stepper-element="nav">
+                        <!--begin::Line-->
+                        <div class="stepper-line w-40px"></div>
+                        <!--end::Line-->
+
+                        <!--begin::Icon-->
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">2</span>
+                        </div>
+                        <!--end::Icon-->
+
+                        <!--begin::Label-->
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Virtual Instance
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                        <!--end::Label-->
+                    </div>
+                    <!--end::Step 2-->
+
+                    <!--begin::Step 3-->
+                    <div class="stepper-item me-5" data-kt-stepper-element="nav">
+
+                        <div class="stepper-line w-40px"></div>
+                        
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">3</span>
+                        </div>
+                        
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Storage and Others
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <!--end::Step 3-->
+
+                     <!--begin::Step 4-->
+                     <div class="stepper-item me-5" data-kt-stepper-element="nav">
+
+                        <div class="stepper-line w-40px"></div>
+                        
+                        <div class="stepper-icon w-40px h-40px">
+                            <i class="stepper-check fas fa-check"></i>
+                            <span class="stepper-number">4</span>
+                        </div>
+                        
+                        <div class="stepper-label">
+                            <h3 class="stepper-title">
+                                Netwok & Configuration
+                            </h3>
+
+                            <div class="stepper-desc">
+                                
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <!--end::Step 4-->
+
+                </div>
+                <!--end::Nav-->
+            </div>
+
+            <!--begin::Content-->
+            <div class="flex-row-fluid">
+                <!--begin::Form Removed w-lg-500px -->
+                <form class="bg-white form  mx-auto p-10 my-10" method="post" id="form"  action="{{ url_for('viewables.apiCreateAVM') }}">
+                    <!--begin::Group-->
+                    <div class="mb-5">
+                        <!--begin::Step 1-->
+                        {% include "viewables/mechines/steps/step1.html" %}
+                        <!--begin::Step 1-->
+
+                        <!--begin::Step 2-->
+                        {% include "viewables/mechines/steps/step2.html" %}
+                        <!--begin::Step 2-->
+
+                        <!--begin::Step 3-->
+                        {% include "viewables/mechines/steps/step3.html" %}
+                        <!--begin::Step 3-->
+
+                        <!--begin::Step 3-->
+                        {% include "viewables/mechines/steps/step4.html" %}
+                        <!--begin::Step 3-->
+
+                    </div>
+                    <!--end::Group-->
+
+                    <!--begin::Actions-->
+                    <div class="d-flex flex-stack justify-content-end">
+                        <!--begin::Wrapper-->
+                        <!-- <div class="me-2">
+                            <button type="button" class="btn btn-light btn-active-light-primary" data-kt-stepper-action="previous">
+                                Back
+                            </button>
+                        </div> -->
+                        <!--end::Wrapper-->
+
+                        <!--begin::Wrapper-->
+                        <div>
+                            <button type="submit" class="btn btn-primary" data-kt-stepper-action="submit">
+                                <span class="indicator-label">
+                                    Submit
+                                </span>
+                                <span class="indicator-progress">
+                                    Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                                </span>
+                            </button>
+
+                            <button type="button" class="btn btn-primary" data-kt-stepper-action="next">
+                                Continue
+                            </button>
+                        </div>
+                        <!--end::Wrapper-->
+                    </div>
+                    <!--end::Actions-->
+                </form>
+                <!--end::Form-->
+            </div>
+        </div>
+        <!--end::Stepper-->
+    </div>
+</div>  
+{% endblock %}
+
+{% block script %}
+<script>
+
+
+// Stepper lement
+var element = document.querySelector("#kt_stepper_example_vertical");
+
+// Initialize Stepper
+var stepper = new KTStepper(element);
+
+// Handle next step
+stepper.on("kt.stepper.next", function (stepper) {
+    if (stepper.getCurrentStepIndex() == 1){
+        var mname = document.querySelector("#mname")
+        const data = $('#form').serializeArray().reduce(function(obj, item) {
+            obj[item.name] = item.value;
+            return obj;
+        }, {});
+        if (mname.value == ""){
+            showAlerts("Empty Field, Virtual Mechine name Required")
+        }
+        else{
+            fetch("{{ url_for('viewables.hyperVinfoS1') }}", {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data['res']=='Success'){
+                    console.log('Success:', data);
+                    addCPU(data['cpu'])
+                    addMemory(data['memory'])
+                    // addavailable(data['available'])
+                    addThreads(data['threads'])
+                    addNetworks(data['networks'])
+                    // addemulator(data['emulators'])
+                    stepper.goNext()
+                }else{
+                    console.log("ERROR")
+                    showAlerts(data['reason'])
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    showAlerts(error)
+                });
+            }
+        }
+    else if (stepper.getCurrentStepIndex() == 2){
+        stepper.goNext() 
+    }
+    else if (stepper.getCurrentStepIndex() == 3){
+        stepper.goNext() 
+    }
+    // stepper.goNext()  
+});
+
+// Handle previous step
+stepper.on("kt.stepper.previous", function (stepper) {
+    stepper.goPrevious(); // go previous step
+});
+
+const addCPU =(arr)=>{
+    arr.map(e=>{
+        document.querySelector("#cpu").innerHTML += `
+        <option value="${e}">${e} CPU</option>
+        `
+    })
+}
+const addThreads =(arr)=>{
+    arr.map(e=>{
+        document.querySelector("#threads").innerHTML += `
+        <option value="${e}">${e}x</option>
+        `
+    })
+}
+const addMemory =(mx)=>{
+    document.querySelector("#mem_range").max = mx;
+}
+const addavailable =(av)=>{
+    document.querySelector("#available").max = parseInt(av)
+}
+const addNetworks = (arr) =>{
+    arr.map(e=>{
+        console.log(e)
+        document.querySelector("#netwoks").innerHTML += `
+        <option value="${e}">${e}</option>
+        `
+    })
+}
+// const addemulator = (arr) =>{
+//     arr.map(e=>{
+//         document.querySelector("#emulator").innerHTML += `
+//         <option value="${e}">${e}</option>
+//         `
+//     })
+// }
+// step 
+function changeSlider(e,c){
+    c = document.getElementById(c)
+    c.innerHTML = e.value 
+}
+
+const showAlerts = (msg) =>{
+    toastr.options = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": true,
+        "positionClass": "toast-top-center",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "500",
+        "timeOut": "4000",
+        "extendedTimeOut": "500",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+
+
+    toastr.error(`${msg}`, "Error");
+}
+
+</script>
+{% endblock %}
